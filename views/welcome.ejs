@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(17, 2, 17);
+        }
+        .head
+        {
+            margin-top: 250px;
+            font-size: 50px;
+            color: white;
+            border-radius: 10px;
+            animation: glow 2s ease-in-out infinite alternate;
+            padding:20px 30px;
+            text-shadow: 0 0 50px white, 0 0 10px white, 0 0 20px rgb(180, 110, 218);
+        }
+            @keyframes glow {
+             from {
+                     box-shadow: 0 0 5px violet;
+                  }
+             to {
+             box-shadow: 0 0 20px violet, 0 0 40px violet;
+                 }
+            }
+        
+
+    </style>
+    <script>
+    // Redirect after 3 seconds to index page
+    setTimeout(() => {
+      window.location.href = "/home"; // where index.html is served
+    }, 3000);
+  </script>
+</head>
+<body>
+    <div class="head">
+        <h1>
+            TASK TRACKER
+        </h1>
+    </div>
+</body>
+</html>
