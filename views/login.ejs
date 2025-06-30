@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     body
+     {
+        
+        background-color: black;
+     }
+     .login
+
+     {
+        display: flex;
+        flex-direction: column;
+        margin:100px 0px 0px 500px;
+        height: 500px;
+        width: 500px;
+        border :2px solid white;
+     }
+     form
+     {
+        display: flex;
+        flex-direction: column;
+        margin: 20px 0px 0px 100px;
+        gap:50px;
+     }
+     input,button
+     {
+        height:50px;
+        width: 300px;
+        background-color: rgb(17, 2, 17);
+        border:2px solid violet;
+     }
+     button
+     {
+        font-size: 30px;
+        
+     }
+     h1
+     {
+        color: white;
+        font-style: bold;
+        font-family: sans-serif;
+        margin-left: 100px;
+     }
+    </style>
+</head>
+<body>
+    <div class="login">
+    <form action="/addtask" method="post">
+         <h1>LOGIN</h1>
+        <input type="text" name="username" required>
+        <input type="password" name="password" required>
+        <button type="submit">submit</button>
+    </form>
+    </div>
+</body>
+</html>

@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta c>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <style>
         body{
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: rgb(17, 2, 17);
+            flex-direction: column;
+            background-color: black;
         }
         .head
         {
@@ -19,7 +22,8 @@
             border-radius: 10px;
             animation: glow 2s ease-in-out infinite alternate;
             padding:20px 30px;
-            text-shadow: 0 0 50px white, 0 0 10px white, 0 0 20px rgb(180, 110, 218);
+            text-shadow: 0 0 50px black, 0 0 10px black, 0 0 20px black;
+           
         }
             @keyframes glow {
              from {
@@ -30,20 +34,58 @@
                  }
             }
         
-
+        .logreg
+        {
+            
+            margin-left: 200px;
+            margin-top: 50px;
+            font-size: 30px;
+            color:white;
+            text-decoration: none;
+        }
+        a
+        {
+            color: white;
+        }
+        #reg
+        {
+            font-size: 20px;
+            color: violet;
+            margin-right: 100px;
+        }
+        .log
+        {
+            margin-left: 1320px;
+            font-size: 30px;
+            border:2px solid white;
+            border-radius: 5px;
+            padding: 3px;
+        }
+        i
+        {
+            color :white;
+        }
+        
     </style>
     <script>
     // Redirect after 3 seconds to index page
     setTimeout(() => {
       window.location.href = "/home"; // where index.html is served
-    }, 3000);
+    },100000);
   </script>
 </head>
 <body>
+    <div class="log">
+   <i class="fa-solid fa-user"></i>
+    <a id="log" href="/login">login</a>
+    </div>
     <div class="head">
         <h1>
             TASK TRACKER
         </h1>
+    </div>
+    <div class="logreg">
+    <p id="reg">dont have an account? <a href="register.html">register here</a></p>
     </div>
 </body>
 </html>
