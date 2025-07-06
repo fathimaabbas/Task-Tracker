@@ -2,10 +2,12 @@ const { error } = require('console');
 const express=require('express');
 const mongoose=require('mongoose');
 const path=require('path');
+const bcrypt=require('bcrypt');
 
 const app=express();
 const Task = require('./models/task');
 const Streak=require('./models/streak');
+const User= require('./models/user');
 
 
 mongoose.connect('mongodb://localhost:27017/tasktracker')
@@ -37,6 +39,11 @@ app.get('/login', (req,res)=>
   res.render("login")
 });
 
+app.get('/register', (req,res)=>
+{
+  res.render("register")
+});
+
 app.get('/addtask', (req, res) => {
   res.render("addtask");
 });
@@ -55,6 +62,63 @@ app.get('/viewtask', async (req, res) => {
   }
 });
 
+app.post('/user',async(req,res)=>
+{
+  const{username,password}=req.body;
+
+  try
+  {
+    const user=await User.findOne({username})
+    if(!user)
+    {
+      return res.status(401).send("Invalid username");
+    }
+    const isMatch = await bcrypt.compare(password,user.password);
+
+    if(!isMatch)
+    {
+      return res.status(409).send("incorrect password");
+    }
+
+    res.redirect('/home');
+  }catch(err)
+  {
+    res.status(501).send("server eroor");
+  }
+});
+
+app.post('/reg', async (req,res)=>
+{
+  const {username,password,confirmPassword} =req.body;
+
+  if(password!=confirmPassword)
+  {
+    return res.status(400).send("password do not match");
+  }
+
+  try
+  {
+    const existingUser =await User.findOne({username});
+    if(existingUser)
+    {
+      return res.status(501).send("usernamea already exists");
+    }
+
+    const hashedPassword= await bcrypt.hash(password,10);
+
+    const newUser =new User({
+         username,
+         password:hashedPassword
+    });
+
+    await newUser.save();
+
+    res.redirect('/login');
+    } catch (err) {
+    console.error("Registration error:", err);
+    res.status(500).send("Server error");
+  }
+});
 
 app.post('/viewtask', async (req, res) => {
   console.log("Submitted task:", req.body);

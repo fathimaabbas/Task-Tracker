@@ -12,8 +12,11 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            background-color: black;
+             background:linear-gradient(to right,rgb(255, 97, 242),rgb(74, 29, 80),rgb(12, 0, 18));
+
+
         }
+         
         .head
         {
             margin-top: 250px;
@@ -25,14 +28,6 @@
             text-shadow: 0 0 50px black, 0 0 10px black, 0 0 20px black;
            
         }
-            @keyframes glow {
-             from {
-                     box-shadow: 0 0 5px violet;
-                  }
-             to {
-             box-shadow: 0 0 20px violet, 0 0 40px violet;
-                 }
-            }
         
         .logreg
         {
@@ -50,7 +45,7 @@
         #reg
         {
             font-size: 20px;
-            color: violet;
+            color: black;
             margin-right: 100px;
         }
         .log
@@ -65,19 +60,21 @@
         {
             color :white;
         }
+       
         
     </style>
     <script>
     // Redirect after 3 seconds to index page
     setTimeout(() => {
       window.location.href = "/home"; // where index.html is served
-    },100000);
+    },1000000);
   </script>
 </head>
 <body>
+    
     <div class="log">
    <i class="fa-solid fa-user"></i>
-    <a id="log" href="/login">login</a>
+    <a id="log" href="/login" placeholder="username">login</a>
     </div>
     <div class="head">
         <h1>
@@ -85,7 +82,7 @@
         </h1>
     </div>
     <div class="logreg">
-    <p id="reg">dont have an account? <a href="register.html">register here</a></p>
+    <p id="reg">dont have an account? <a href="/register">register here</a></p>
     </div>
 </body>
 </html>
